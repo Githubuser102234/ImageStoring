@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -218,11 +218,6 @@
             }
 
             const file = imageFile.files[0];
-            if (file.size > 1024 * 1024) { // 1MB limit for document size
-                showMessage("File Too Large", "Please select an image smaller than 1MB.");
-                return;
-            }
-
             const reader = new FileReader();
             reader.onloadend = async function () {
                 try {
@@ -246,7 +241,7 @@
 
                 } catch (e) {
                     console.error("Error uploading image: ", e);
-                    showMessage("Upload Failed", "An error occurred during image upload.");
+                    showMessage("Upload Failed", "An error occurred during image upload. The file may be too large.");
                 } finally {
                     hideLoading();
                 }
